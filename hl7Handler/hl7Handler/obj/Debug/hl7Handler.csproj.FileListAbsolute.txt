@@ -1,0 +1,24 @@
+C:\Users\usst\source\repos\hl7Handler\hl7Handler\bin\Debug\hl7Handler.dll
+C:\Users\usst\source\repos\hl7Handler\hl7Handler\bin\Debug\hl7Handler.pdb
+C:\Users\usst\source\repos\hl7Handler\hl7Handler\obj\Debug\hl7Handler.csprojAssemblyReference.cache
+C:\Users\usst\source\repos\hl7Handler\hl7Handler\obj\Debug\hl7Handler.csproj.CoreCompileInputs.cache
+C:\Users\usst\source\repos\hl7Handler\hl7Handler\obj\Debug\hl7Handler.dll
+C:\Users\usst\source\repos\hl7Handler\hl7Handler\obj\Debug\hl7Handler.pdb
+C:\Users\Machenike\Desktop\hl7Handler\hl7Handler\bin\Debug\hl7Handler.dll
+C:\Users\Machenike\Desktop\hl7Handler\hl7Handler\bin\Debug\hl7Handler.pdb
+C:\Users\Machenike\Desktop\hl7Handler\hl7Handler\obj\Debug\hl7Handler.csprojAssemblyReference.cache
+C:\Users\Machenike\Desktop\hl7Handler\hl7Handler\obj\Debug\hl7Handler.csproj.CoreCompileInputs.cache
+C:\Users\Machenike\Desktop\hl7Handler\hl7Handler\obj\Debug\hl7Handler.dll
+C:\Users\Machenike\Desktop\hl7Handler\hl7Handler\obj\Debug\hl7Handler.pdb
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\hl7Handler\bin\Debug\hl7Handler.dll
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\hl7Handler\bin\Debug\hl7Handler.pdb
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\hl7Handler\obj\Debug\hl7Handler.csprojAssemblyReference.cache
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\hl7Handler\obj\Debug\hl7Handler.csproj.CoreCompileInputs.cache
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\hl7Handler\obj\Debug\hl7Handler.dll
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\hl7Handler\obj\Debug\hl7Handler.pdb
+C:\Users\usst\Desktop\hl7Handler\hl7Handler\obj\Debug\hl7Handler.csprojAssemblyReference.cache
+C:\Users\usst\Desktop\hl7Handler\hl7Handler\obj\Debug\hl7Handler.csproj.CoreCompileInputs.cache
+C:\Users\usst\Desktop\hl7Handler\hl7Handler\obj\Debug\hl7Handler.dll
+C:\Users\usst\Desktop\hl7Handler\hl7Handler\obj\Debug\hl7Handler.pdb
+C:\Users\usst\Desktop\hl7Handler\hl7Handler\bin\Debug\hl7Handler.dll
+C:\Users\usst\Desktop\hl7Handler\hl7Handler\bin\Debug\hl7Handler.pdb

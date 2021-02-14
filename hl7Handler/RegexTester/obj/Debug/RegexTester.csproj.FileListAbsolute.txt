@@ -1,0 +1,30 @@
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\RegexTester\bin\Debug\RegexTester.exe.config
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\RegexTester\bin\Debug\RegexTester.exe
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\RegexTester\bin\Debug\RegexTester.pdb
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\RegexTester\obj\Debug\RegexTester.csprojAssemblyReference.cache
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\RegexTester\obj\Debug\RegexTester.Form1.resources
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\RegexTester\obj\Debug\RegexTester.Properties.Resources.resources
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\RegexTester\obj\Debug\RegexTester.csproj.GenerateResource.cache
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\RegexTester\obj\Debug\RegexTester.csproj.CoreCompileInputs.cache
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\RegexTester\obj\Debug\RegexTester.exe
+C:\Users\usst\Desktop\新建文件夹 (2)\hl7Handler\RegexTester\obj\Debug\RegexTester.pdb
+C:\Users\Machenike\Desktop\hl7Handler\RegexTester\bin\Debug\RegexTester.exe.config
+C:\Users\Machenike\Desktop\hl7Handler\RegexTester\bin\Debug\RegexTester.exe
+C:\Users\Machenike\Desktop\hl7Handler\RegexTester\bin\Debug\RegexTester.pdb
+C:\Users\Machenike\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.csprojAssemblyReference.cache
+C:\Users\Machenike\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.Form1.resources
+C:\Users\Machenike\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.Properties.Resources.resources
+C:\Users\Machenike\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.csproj.GenerateResource.cache
+C:\Users\Machenike\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.csproj.CoreCompileInputs.cache
+C:\Users\Machenike\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.exe
+C:\Users\Machenike\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.pdb
+C:\Users\usst\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.csprojAssemblyReference.cache
+C:\Users\usst\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.Form1.resources
+C:\Users\usst\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.Properties.Resources.resources
+C:\Users\usst\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.csproj.GenerateResource.cache
+C:\Users\usst\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.csproj.CoreCompileInputs.cache
+C:\Users\usst\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.exe
+C:\Users\usst\Desktop\hl7Handler\RegexTester\obj\Debug\RegexTester.pdb
+C:\Users\usst\Desktop\hl7Handler\RegexTester\bin\Debug\RegexTester.exe.config
+C:\Users\usst\Desktop\hl7Handler\RegexTester\bin\Debug\RegexTester.exe
+C:\Users\usst\Desktop\hl7Handler\RegexTester\bin\Debug\RegexTester.pdb

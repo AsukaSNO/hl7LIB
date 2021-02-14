@@ -1,0 +1,13 @@
+C:\Users\usst\Desktop\hl7Handler\NHAPI\bin\Debug\NHAPI.exe.config
+C:\Users\usst\Desktop\hl7Handler\NHAPI\bin\Debug\NHAPI.exe
+C:\Users\usst\Desktop\hl7Handler\NHAPI\bin\Debug\NHAPI.pdb
+C:\Users\usst\Desktop\hl7Handler\NHAPI\bin\Debug\NHapi.Base.dll
+C:\Users\usst\Desktop\hl7Handler\NHAPI\bin\Debug\NHapi.Model.V231.dll
+C:\Users\usst\Desktop\hl7Handler\NHAPI\obj\Debug\NHAPI.csprojAssemblyReference.cache
+C:\Users\usst\Desktop\hl7Handler\NHAPI\obj\Debug\NHAPI.Form1.resources
+C:\Users\usst\Desktop\hl7Handler\NHAPI\obj\Debug\NHAPI.Properties.Resources.resources
+C:\Users\usst\Desktop\hl7Handler\NHAPI\obj\Debug\NHAPI.csproj.GenerateResource.cache
+C:\Users\usst\Desktop\hl7Handler\NHAPI\obj\Debug\NHAPI.csproj.CoreCompileInputs.cache
+C:\Users\usst\Desktop\hl7Handler\NHAPI\obj\Debug\NHAPI.csproj.CopyComplete
+C:\Users\usst\Desktop\hl7Handler\NHAPI\obj\Debug\NHAPI.exe
+C:\Users\usst\Desktop\hl7Handler\NHAPI\obj\Debug\NHAPI.pdb

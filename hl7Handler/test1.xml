@@ -1,0 +1,20 @@
+<patients>
+  <patient ID="1001">
+    <Name>张三</Name>
+    <gender>男</gender>
+    <birthday>
+      <year>2008</year>
+      <month>8</month>
+      <day>18</day>
+    </birthday>
+  </patient>
+  <patient ID="1002">
+    <Name>李四</Name>
+    <gender>男</gender>
+    <birthday>
+      <year>2010</year>
+      <month>5</month>
+      <day>8</day>
+    </birthday>
+  </patient>
+</patients>

@@ -1,0 +1,2218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+		This HL7 Message profile was written by the INRIA IHE-Development Team for 
+		IHE Europe PLACE_HERE_LICENCE_TEXT 
+	-->
+<?xml-stylesheet type="text/xsl" href="./xsl/mp2htm.xsl"?><HL7v2xConformanceProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="http://sumo.irisa.fr/xsd/HL7MessageProfileSchema.xsd" HL7Version="2.3.1" ProfileType="Constrainable">
+  <MetaData Name="SWF" OrgName="IHE" Version="2.3" Status="DRAFT" Topics="confsig-IHE-2.3.1-profile-accNE_accAL-Deferred"/>
+  <ImpNote>General order response message response to any ORM</ImpNote>
+  <UseCase/>
+  <Encodings>
+    <Encoding>ER7</Encoding>
+  </Encodings>
+  <DynamicDef AccAck="NE" AppAck="AL" MsgAckMode="Deferred"/>
+  <HL7v2xStaticDef MsgType="ORR" EventType="O02" MsgStructID="ORR_O02" EventDesc="General order response message response to any ORM" Role="Sender">
+    <MetaData Name="SWF" OrgName="IHE" Version="2.3" Status="DRAFT" Topics="confsig-IHE-2.3.1-static-ORR-O02-null-ORR_O02-2.3-DRAFT-Sender"/>
+    <Segment Name="MSH" LongName="message header segment" Usage="R" Min="1" Max="1">
+      <Field Name="Field Separator" Usage="R" Min="1" Max="1" Datatype="ST" Length="1" ItemNo="00001">
+        <Reference>11.6.1</Reference>
+      </Field>
+      <Field Name="Encoding Characters" Usage="R" Min="1" Max="1" Datatype="ST" Length="4" ItemNo="00002">
+        <Reference>11.2.2</Reference>
+      </Field>
+      <Field Name="Sending Application" Usage="R" Min="1" Max="1" Datatype="HD" Length="225" Table="0361" ItemNo="00003">
+        <Reference>11.2.3</Reference>
+        <Component Table="0300" Name="namespace ID" Usage="R" Datatype="IS" Length="3">
+				</Component>
+        <Component Name="universal ID" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+				</Component>
+      </Field>
+      <Field Name="Sending Facility" Usage="R" Min="1" Max="1" Datatype="HD" Length="225" Table="0362" ItemNo="00004">
+        <Reference>11.2.4</Reference>
+        <Component Table="0300" Name="namespace ID" Usage="R" Datatype="IS" Length="3">
+				</Component>
+        <Component Name="universal ID" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+				</Component>
+      </Field>
+      <Field Name="Receiving Application" Usage="R" Min="1" Max="1" Datatype="HD" Length="225" Table="0361" ItemNo="00005">
+        <Reference>11.6.6</Reference>
+        <Component Table="0300" Name="namespace ID" Usage="R" Datatype="IS" Length="3">
+				</Component>
+        <Component Name="universal ID" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+				</Component>
+      </Field>
+      <Field Name="Receiving Facility" Usage="R" Min="1" Max="1" Datatype="HD" Length="225" Table="0362" ItemNo="00006">
+        <Reference>11.2.6</Reference>
+        <Component Table="0300" Name="namespace ID" Usage="R" Datatype="IS" Length="3">
+				</Component>
+        <Component Name="universal ID" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+				</Component>
+      </Field>
+      <Field Name="Date/Time Of Message" Usage="O" Min="0" Max="1" Datatype="TS" Length="26" ItemNo="00007">
+        <Reference>11.2.7</Reference>
+        <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+          <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+        </Component>
+        <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+          <ImpNote>Retained for backward compatibility only
+</ImpNote>
+        </Component>
+      </Field>
+      <Field Name="Security" Usage="O" Min="0" Max="1" Datatype="ST" Length="40" ItemNo="00008">
+        <Reference>11.6.3</Reference>
+      </Field>
+      <Field Name="Message Type" Usage="R" Min="1" Max="1" Datatype="CM_MSG" Length="9" Table="0076" ItemNo="00009">
+        <Reference>11.3.3</Reference>
+        <Component Name="message type" Usage="R" Datatype="ID" Length="3">
+				</Component>
+        <Component Name="trigger event" Usage="O" Datatype="ID" Length="3">
+				</Component>
+        <Component Name="message structure" Usage="O" Datatype="ID" Length="3">
+				</Component>
+      </Field>
+      <Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" Length="20" ItemNo="00010">
+        <Reference>2.24.2.2</Reference>
+      </Field>
+      <Field Name="Processing ID" Usage="R" Min="1" Max="1" Datatype="PT" Length="6" Table="0103" ItemNo="00011">
+        <Reference>2.24.1.11</Reference>
+        <Component Name="processing ID" Usage="R" Datatype="ID" Length="3">
+				</Component>
+        <Component Name="processing mode" Usage="O" Datatype="ID" Length="3">
+				</Component>
+      </Field>
+      <Field Name="Version ID" Usage="R" Min="1" Max="1" Datatype="VID" Length="60" Table="0104" ItemNo="00012">
+        <Reference>2.24.1.12</Reference>
+        <Component Name="version ID" Usage="R" Datatype="ID" Length="3">
+				</Component>
+        <Component Name="internationalization code" Usage="O" Datatype="CE" Length="18">
+          <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+        </Component>
+        <Component Name="international version ID" Usage="O" Datatype="CE" Length="18">
+          <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+        </Component>
+      </Field>
+      <Field Name="Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" Length="15" ItemNo="00013">
+        <Reference>2.24.1.13</Reference>
+      </Field>
+      <Field Name="Continuation Pointer" Usage="O" Min="0" Max="1" Datatype="ST" Length="180" ItemNo="00014">
+        <Reference>2.24.8.1</Reference>
+      </Field>
+      <Field Name="Accept Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" Length="2" Table="0155" ItemNo="00015">
+        <Reference>2.24.1.15</Reference>
+      </Field>
+      <Field Name="Application Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" Length="2" Table="0155" ItemNo="00016">
+        <Reference>2.24.1.16</Reference>
+      </Field>
+      <Field Name="Country Code" Usage="O" Min="0" Max="1" Datatype="ID" Length="2" ItemNo="00017">
+        <Reference>2.24.1.17</Reference>
+      </Field>
+      <Field Name="Character Set" Usage="C" Min="0" Max="1" Datatype="ID" Length="16" Table="0211" ItemNo="00692">
+        <Reference>2.24.1.18</Reference>
+        
+      </Field>
+      <Field Name="Principal Language Of Message" Usage="O" Min="0" Max="1" Datatype="CE" Length="60" ItemNo="00693">
+        <Reference>2.24.1.19</Reference>
+        <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="text" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+				</Component>
+      </Field>
+      <Field Name="Alternate Character Set Handling Scheme" Usage="O" Min="0" Max="1" Datatype="ID" Length="20" Table="0356" ItemNo="01317">
+        <Reference>2.24.1.20</Reference>
+      </Field>
+    </Segment>
+    <Segment Name="MSA" LongName="message acknowledgment segment" Usage="R" Min="1" Max="1">
+      <Field Name="Acknowledgment Code" Usage="R" Min="1" Max="1" Datatype="ID" Length="2" Table="0008" ItemNo="00018">
+        <Reference>2.24.2.1</Reference>
+      </Field>
+      <Field Name="Message Control ID" Usage="R" Min="1" Max="1" Datatype="ST" Length="20" ItemNo="00010">
+        <Reference>2.24.2.2</Reference>
+      </Field>
+      <Field Name="Text Message" Usage="O" Min="0" Max="1" Datatype="ST" Length="80" ItemNo="00020">
+        <Reference>2.24.2.3</Reference>
+      </Field>
+      <Field Name="Expected Sequence Number" Usage="O" Min="0" Max="1" Datatype="NM" Length="15" ItemNo="00021">
+        <Reference>2.24.2.4</Reference>
+      </Field>
+      <Field Name="Delayed Acknowledgment Type" Usage="O" Min="0" Max="1" Datatype="ID" Length="1" Table="0102" ItemNo="00022">
+        <Reference>2.24.2.5</Reference>
+      </Field>
+      <Field Name="Error Condition" Usage="O" Min="0" Max="1" Datatype="CE" Length="100" ItemNo="00023">
+        <Reference>2.24.2.6</Reference>
+        <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="text" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+				</Component>
+      </Field>
+    </Segment>
+    <Segment Name="ERR" LongName="error segment" Usage="RE" Min="0" Max="1">
+      <Field Name="Error Code and Location" Usage="R" Min="1" Max="*" Datatype="CM_ELD" Length="80" ItemNo="00024">
+        <Reference>2.24.3.1</Reference>
+        <Component Name="segment ID" Usage="R" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="sequence" Usage="O" Datatype="NM" Length="3">
+				</Component>
+        <Component Name="field position" Usage="O" Datatype="NM" Length="3">
+				</Component>
+        <Component Name="code identifying error" Usage="O" Datatype="CE" Length="18">
+          <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+          <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+					</SubComponent>
+        </Component>
+      </Field>
+    </Segment>
+    <Segment Name="NTE" LongName="notes and comments segment" Usage="RE" Min="0" Max="*">
+      <Field Name="Set ID - NTE" Usage="O" Min="0" Max="1" Datatype="SI" Length="4" ItemNo="00096">
+        <Reference>2.24.15.1</Reference>
+      </Field>
+      <Field Name="Source of Comment" Usage="O" Min="0" Max="1" Datatype="ID" Length="8" Table="0105" ItemNo="00097">
+        <Reference>2.24.15.2</Reference>
+      </Field>
+      <Field Name="Comment" Usage="O" Min="0" Max="*" Datatype="FT" Length="65536" ItemNo="00098">
+        <Reference>2.24.15.3</Reference>
+      </Field>
+      <Field Name="Comment Type" Usage="O" Min="0" Max="1" Datatype="CE" Length="60" Table="0364" ItemNo="01318">
+        <Reference>2.24.15.4</Reference>
+        <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="text" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+				</Component>
+        <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+				</Component>
+      </Field>
+    </Segment>
+    <SegGroup Name="RESPONSE" LongName="RESPONSE" Usage="RE" Min="0" Max="1">
+      <SegGroup Name="PATIENT" LongName="PATIENT" Usage="RE" Min="0" Max="1">
+        <Segment Name="PID" LongName="patient identification segment" Usage="R" Min="1" Max="1">
+          <Field Name="Set ID - PID" Usage="O" Min="0" Max="1" Datatype="SI" Length="4" ItemNo="00104">
+            <Reference>3.3.2.1</Reference>
+          </Field>
+          <Field Name="Patient ID" Usage="O" Min="0" Max="1" Datatype="CX" Length="27" ItemNo="00105">
+            <Reference>3.3.2.2</Reference>
+            <Component Name="ID" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="check digit" Usage="O" Datatype="ST">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3" Table="0203">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+          </Field>
+          <Field Name="Patient Identifier List" Usage="R" Min="1" Max="*" Datatype="CX" Length="27" ItemNo="00106">
+            <Reference>3.3.2.3</Reference>
+            <Component Name="ID" Usage="R" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="check digit" Usage="O" Datatype="ST">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3" Table="0203">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+          </Field>
+          <Field Name="Alternate Patient ID - PID" Usage="O" Min="0" Max="1" Datatype="CX" Length="27" ItemNo="00107">
+            <Reference>3.3.2.4</Reference>
+            <Component Name="ID" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="check digit" Usage="O" Datatype="ST">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3" Table="0203">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+          </Field>
+          <Field Name="Patient Name" Usage="R" Min="1" Max="*" Datatype="XPN" Length="48" ItemNo="00108">
+            <Reference>3.3.2.5</Reference>
+            <Component Name="family+last name prefix" Usage="R" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="given name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="name type code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Mother's Maiden Name" Usage="O" Min="0" Max="1" Datatype="XPN" Length="48" ItemNo="00109">
+            <Reference>6.4.7.40</Reference>
+            <Component Name="family+last name prefix" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="given name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="name type code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Date/Time Of Birth" Usage="RE" Min="0" Max="1" Datatype="TS" Length="26" ItemNo="00110">
+            <Reference>8.6.2.6</Reference>
+            <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+              <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+            </Component>
+            <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+              <ImpNote>Retained for backward compatibility only
+</ImpNote>
+            </Component>
+          </Field>
+          <Field Name="Sex" Usage="R" Min="1" Max="1" Datatype="IS" Length="1" Table="0001" ItemNo="00111">
+            <Reference>8.6.2.5</Reference>
+          </Field>
+          <Field Name="Patient Alias" Usage="O" Min="0" Max="1" Datatype="XPN" Length="48" ItemNo="00112">
+            <Reference>3.3.2.9</Reference>
+            <Component Name="family+last name prefix" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="given name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="name type code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Race" Usage="RE" Min="0" Max="1" Datatype="CE" Length="80" Table="0005" ItemNo="00113">
+            <Reference>6.4.7.71</Reference>
+            <Component Name="identifier" Usage="RE" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Patient Address" Usage="RE" Min="0" Max="1" Datatype="XAD" Length="106" ItemNo="00114">
+            <Reference>3.3.2.11</Reference>
+            <Component Name="street address" Usage="RE" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="other designation" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="city" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="state or province" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="zip or postal code" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="country" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="address type" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="other geographic designation" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="county/parish code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="census tract" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="address representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="County Code" Usage="O" Min="0" Max="1" Datatype="IS" Length="4" Table="0289" ItemNo="00115">
+            <Reference>3.3.2.12</Reference>
+          </Field>
+          <Field Name="Phone Number - Home" Usage="O" Min="0" Max="1" Datatype="XTN" Length="40" ItemNo="00116">
+            <Reference>3.3.2.13</Reference>
+            <Component Name="[(999)] 999-9999 [X99999][C any text]" Usage="O" Datatype="TN" Length="3">
+						</Component>
+            <Component Name="telecommunication use code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="telecommunication equipment type (ID)" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="Email address" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="Country Code" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Area/city code" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Phone number" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Extension" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="any text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Phone Number - Business" Usage="O" Min="0" Max="1" Datatype="XTN" Length="40" ItemNo="00117">
+            <Reference>3.3.2.14</Reference>
+            <Component Name="[(999)] 999-9999 [X99999][C any text]" Usage="O" Datatype="TN" Length="3">
+						</Component>
+            <Component Name="telecommunication use code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="telecommunication equipment type (ID)" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="Email address" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="Country Code" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Area/city code" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Phone number" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Extension" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="any text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Primary Language" Usage="O" Min="0" Max="1" Datatype="CE" Length="60" Table="0296" ItemNo="00118">
+            <Reference>6.4.7.34</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Marital Status" Usage="O" Min="0" Max="1" Datatype="CE" Length="80" Table="0002" ItemNo="00119">
+            <Reference>12.3.3.4</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Religion" Usage="O" Min="0" Max="1" Datatype="CE" Length="80" Table="0006" ItemNo="00120">
+            <Reference>6.4.7.39</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Patient Account Number" Usage="C" Min="0" Max="1" Datatype="CX" Length="27" ItemNo="00121">
+            <Reference>3.3.2.18</Reference>
+            
+            <Component Name="ID" Usage="C" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="check digit" Usage="O" Datatype="ST">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3" Table="0203">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+          </Field>
+          <Field Name="SSN Number - Patient" Usage="O" Min="0" Max="1" Datatype="ST" Length="16" ItemNo="00122">
+            <Reference>3.3.2.19</Reference>
+          </Field>
+          <Field Name="Driver's License Number - Patient" Usage="O" Min="0" Max="1" Datatype="DLN" Length="25" ItemNo="00123">
+            <Reference>3.3.2.20</Reference>
+            <Component Name="Driver's License Number" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="Issuing State, province, country" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="expiration date" Usage="O" Datatype="DT" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Mother's Identifier" Usage="O" Min="0" Max="2" Datatype="CX" Length="27" ItemNo="00124">
+            <Reference>3.3.2.21</Reference>
+            <Component Name="ID" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="check digit" Usage="O" Datatype="ST">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3" Table="0203">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+          </Field>
+          <Field Name="Ethnic Group" Usage="O" Min="0" Max="1" Datatype="CE" Length="80" Table="0189" ItemNo="00125">
+            <Reference>6.4.7.42</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Birth Place" Usage="O" Min="0" Max="1" Datatype="ST" Length="60" ItemNo="00126">
+            <Reference>3.3.2.23</Reference>
+          </Field>
+          <Field Name="Multiple Birth Indicator" Usage="O" Min="0" Max="1" Datatype="ID" Length="1" Table="0136" ItemNo="00127">
+            <Reference>3.3.2.24</Reference>
+          </Field>
+          <Field Name="Birth Order" Usage="O" Min="0" Max="1" Datatype="NM" Length="2" ItemNo="00128">
+            <Reference>3.3.2.25</Reference>
+          </Field>
+          <Field Name="Citizenship" Usage="O" Min="0" Max="1" Datatype="CE" Length="80" Table="0171" ItemNo="00129">
+            <Reference>6.4.7.33</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Veterans Military Status" Usage="O" Min="0" Max="1" Datatype="CE" Length="60" Table="0172" ItemNo="00130">
+            <Reference>3.3.2.27</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Nationality" Usage="O" Min="0" Max="1" Datatype="CE" Length="80" Table="0212" ItemNo="00739">
+            <Reference>6.4.7.41</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Patient Death Date and Time" Usage="O" Min="0" Max="1" Datatype="TS" Length="26" ItemNo="00740">
+            <Reference>3.3.2.29</Reference>
+            <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+              <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+            </Component>
+            <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+              <ImpNote>Retained for backward compatibility only
+</ImpNote>
+            </Component>
+          </Field>
+          <Field Name="Patient Death Indicator" Usage="O" Min="0" Max="1" Datatype="ID" Length="1" Table="0136" ItemNo="00741">
+            <Reference>3.3.2.30</Reference>
+          </Field>
+        </Segment>
+        <Segment Name="NTE" LongName="notes and comments segment" Usage="RE" Min="0" Max="*">
+          <Field Name="Set ID - NTE" Usage="O" Min="0" Max="1" Datatype="SI" Length="4" ItemNo="00096">
+            <Reference>2.24.15.1</Reference>
+          </Field>
+          <Field Name="Source of Comment" Usage="O" Min="0" Max="1" Datatype="ID" Length="8" Table="0105" ItemNo="00097">
+            <Reference>2.24.15.2</Reference>
+          </Field>
+          <Field Name="Comment" Usage="O" Min="0" Max="*" Datatype="FT" Length="65536" ItemNo="00098">
+            <Reference>2.24.15.3</Reference>
+          </Field>
+          <Field Name="Comment Type" Usage="O" Min="0" Max="1" Datatype="CE" Length="60" Table="0364" ItemNo="01318">
+            <Reference>2.24.15.4</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+        </Segment>
+      </SegGroup>
+      <SegGroup Name="ORDER" LongName="ORDER" Usage="R" Min="1" Max="*">
+        <Segment Name="ORC" LongName="common order segment" Usage="R" Min="1" Max="1">
+          <Field Name="Order Control" Usage="R" Min="1" Max="1" Datatype="ID" Length="2" Table="0119" ItemNo="00215">
+            <Reference>4.3.1.1</Reference>
+          </Field>
+          <Field Name="Placer Order Number" Usage="R" Min="1" Max="1" Datatype="EI" Length="22" ItemNo="00216">
+            <Reference>9.5.1.14</Reference>
+            <Component Name="entity identifier" Usage="R" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+						</Component>
+            <Component Name="universal ID" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+						</Component>
+          </Field>
+          <Field Name="Filler Order Number" Usage="O" Min="0" Max="1" Datatype="EI" Length="22" ItemNo="00217">
+            <Reference>9.5.1.15</Reference>
+            <Component Name="entity identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+						</Component>
+            <Component Name="universal ID" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+						</Component>
+          </Field>
+          <Field Name="Placer Group Number" Usage="C" Min="0" Max="1" Datatype="EI" Length="22" ItemNo="00218">
+            <Reference>10.5.2.4</Reference>
+            
+            <Component Name="entity identifier" Usage="C" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+						</Component>
+            <Component Name="universal ID" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+						</Component>
+          </Field>
+          <Field Name="Order Status" Usage="O" Min="0" Max="1" Datatype="ID" Length="2" Table="0038" ItemNo="00219">
+            <Reference>4.3.1.5</Reference>
+          </Field>
+          <Field Name="Response Flag" Usage="O" Min="0" Max="1" Datatype="ID" Length="1" Table="0121" ItemNo="00220">
+            <Reference>4.3.1.6</Reference>
+          </Field>
+          <Field Name="Quantity/Timing" Usage="R" Min="1" Max="1" Datatype="TQ" Length="200" ItemNo="00221">
+            <Reference>7.3.1.27</Reference>
+            <Component Name="quantity" Usage="O" Datatype="CQ" Length="21">
+              <SubComponent Name="quantity" Usage="O" Datatype="NM" Length="3">
+							</SubComponent>
+              <SubComponent Name="units" Usage="O" Datatype="CE" Length="18">
+							</SubComponent>
+            </Component>
+            <Component Name="interval" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="duration" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="start date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="end date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="priority" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="condition" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="conjunction" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="order sequencing" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="occurrence duration" Usage="O" Datatype="CE" Length="18">
+              <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+            </Component>
+            <Component Name="total occurences" Usage="O" Datatype="NM" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Parent" Usage="C" Min="0" Max="1" Datatype="CM_EIP" Length="200" ItemNo="00222">
+            <Reference>4.3.1.8</Reference>
+            
+            <Component Name="parent's placer order number" Usage="C" Datatype="EI" Length="12">
+              <SubComponent Name="entity identifier" Usage="C" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="parent's filler order number" Usage="O" Datatype="EI" Length="12">
+              <SubComponent Name="entity identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+          </Field>
+          <Field Name="Date/Time of Transaction" Usage="R" Min="1" Max="1" Datatype="TS" Length="26" ItemNo="00223">
+            <Reference>4.3.1.9</Reference>
+            <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+              <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+            </Component>
+            <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+              <ImpNote>Retained for backward compatibility only
+</ImpNote>
+            </Component>
+          </Field>
+          <Field Name="Entered By" Usage="RE" Min="0" Max="1" Datatype="XCN" Length="120" ItemNo="00224">
+            <Reference>4.3.1.10</Reference>
+            <Component Name="ID number (ST)" Usage="RE" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="family+last name prefix" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="given name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="source table" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="name type code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier check digit" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Verified By" Usage="O" Min="0" Max="1" Datatype="XCN" Length="120" ItemNo="00225">
+            <Reference>4.3.1.11</Reference>
+            <Component Name="ID number (ST)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="family+last name prefix" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="given name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="source table" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="name type code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier check digit" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Ordering Provider" Usage="R" Min="1" Max="1" Datatype="XCN" Length="120" ItemNo="00226">
+            <Reference>7.3.1.16</Reference>
+            <Component Name="ID number (ST)" Usage="R" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="family+last name prefix" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="given name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="source table" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="name type code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier check digit" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Enterer's Location" Usage="O" Min="0" Max="1" Datatype="PL" Length="80" ItemNo="00227">
+            <Reference>4.3.1.13</Reference>
+            <Component Name="point of care" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="room" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="bed" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="facility (HD)" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="location status" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="person location type" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="building" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="floor" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="Location description" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Call Back Phone Number" Usage="RE" Min="0" Max="1" Datatype="XTN" Length="40" ItemNo="00228">
+            <Reference>4.3.1.14</Reference>
+            <Component Name="[(999)] 999-9999 [X99999][C any text]" Usage="RE" Datatype="TN" Length="3">
+						</Component>
+            <Component Name="telecommunication use code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="telecommunication equipment type (ID)" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="Email address" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="Country Code" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Area/city code" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Phone number" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Extension" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="any text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Order Effective Date/Time" Usage="O" Min="0" Max="1" Datatype="TS" Length="26" ItemNo="00229">
+            <Reference>4.3.1.15</Reference>
+            <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+              <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+            </Component>
+            <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+              <ImpNote>Retained for backward compatibility only
+</ImpNote>
+            </Component>
+          </Field>
+          <Field Name="Order Control Code Reason" Usage="O" Min="0" Max="1" Datatype="CE" Length="200" ItemNo="00230">
+            <Reference>4.3.1.16</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Entering Organization" Usage="R" Min="1" Max="1" Datatype="CE" Length="60" ItemNo="00231">
+            <Reference>4.3.1.17</Reference>
+            <Component Name="identifier" Usage="R" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Entering Device" Usage="O" Min="0" Max="1" Datatype="CE" Length="60" ItemNo="00232">
+            <Reference>4.3.1.18</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Action By" Usage="O" Min="0" Max="1" Datatype="XCN" Length="120" ItemNo="00233">
+            <Reference>4.3.1.19</Reference>
+            <Component Name="ID number (ST)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="family+last name prefix" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="given name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="source table" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="name type code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier check digit" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Advanced Beneficiary Notice Code" Usage="O" Min="0" Max="1" Datatype="CE" Length="40" Table="0339" ItemNo="01310">
+            <Reference>4.3.1.20</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Ordering Facility Name" Usage="O" Min="0" Max="1" Datatype="XON" Length="60" ItemNo="01311">
+            <Reference>4.3.1.21</Reference>
+            <Component Name="organization name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="organization name type code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="ID number (NM)" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="check digit" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Datatype="IS" Name="identifier type code" Usage="O" Length="3">
+						</Component>
+            <Component Name="assigning facility ID" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Ordering Facility Address" Usage="O" Min="0" Max="1" Datatype="XAD" Length="106" ItemNo="01312">
+            <Reference>4.3.1.22</Reference>
+            <Component Name="street address" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="other designation" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="city" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="state or province" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="zip or postal code" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="country" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="address type" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="other geographic designation" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="county/parish code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="census tract" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="address representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Ordering Facility Phone Number" Usage="O" Min="0" Max="1" Datatype="XTN" Length="48" ItemNo="01313">
+            <Reference>4.3.1.23</Reference>
+            <Component Name="[(999)] 999-9999 [X99999][C any text]" Usage="O" Datatype="TN" Length="3">
+						</Component>
+            <Component Name="telecommunication use code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="telecommunication equipment type (ID)" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="Email address" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="Country Code" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Area/city code" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Phone number" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Extension" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="any text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Ordering Provider Address" Usage="O" Min="0" Max="1" Datatype="XAD" Length="106" ItemNo="01314">
+            <Reference>4.3.1.24</Reference>
+            <Component Name="street address" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="other designation" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="city" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="state or province" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="zip or postal code" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="country" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="address type" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="other geographic designation" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="county/parish code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="census tract" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="address representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+        </Segment>
+        <Segment Name="OBR" LongName="observation request segment" Usage="R" Min="1" Max="1">
+          <Field Name="Set ID - OBR" Usage="O" Min="0" Max="1" Datatype="SI" Length="4" ItemNo="00237">
+            <Reference>7.3.1.1</Reference>
+          </Field>
+          <Field Name="Placer Order Number" Usage="C" Min="0" Max="1" Datatype="EI" Length="22" ItemNo="00216">
+            <Reference>9.5.1.14</Reference>
+            <Component Name="entity identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+						</Component>
+            <Component Name="universal ID" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+						</Component>
+          </Field>
+          <Field Name="Filler Order Number" Usage="R" Min="1" Max="1" Datatype="EI" Length="22" ItemNo="00217">
+            <Reference>9.5.1.15</Reference>
+            <Component Name="entity identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+						</Component>
+            <Component Name="universal ID" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+						</Component>
+          </Field>
+          <Field Name="Universal Service ID" Usage="R" Min="1" Max="1" Datatype="CE" Length="200" ItemNo="00238">
+            <Reference>10.5.4.3</Reference>
+            <Component Name="identifier" Usage="R" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Priority-OBR" Usage="O" Min="0" Max="1" Datatype="ID" Length="2" ItemNo="00239">
+            <Reference>7.3.1.5</Reference>
+          </Field>
+          <Field Name="Requested Date/time" Usage="O" Min="0" Max="1" Datatype="TS" Length="26" ItemNo="00240">
+            <Reference>7.3.1.6</Reference>
+            <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+              <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+            </Component>
+            <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+              <ImpNote>Retained for backward compatibility only
+</ImpNote>
+            </Component>
+          </Field>
+          <Field Name="Observation Date/Time #" Usage="C" Min="0" Max="1" Datatype="TS" Length="26" ItemNo="00241">
+            <Reference>7.3.1.7</Reference>
+            <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+              <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+            </Component>
+            <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+              <ImpNote>Retained for backward compatibility only
+</ImpNote>
+            </Component>
+          </Field>
+          <Field Name="Observation End Date/Time #" Usage="O" Min="0" Max="1" Datatype="TS" Length="26" ItemNo="00242">
+            <Reference>7.3.1.8</Reference>
+            <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+              <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+            </Component>
+            <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+              <ImpNote>Retained for backward compatibility only
+</ImpNote>
+            </Component>
+          </Field>
+          <Field Name="Collection Volume *" Usage="O" Min="0" Max="1" Datatype="CQ" Length="21" ItemNo="00243">
+            <Reference>7.3.1.9</Reference>
+            <Component Name="quantity" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="units" Usage="O" Datatype="CE" Length="18">
+              <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+            </Component>
+          </Field>
+          <Field Name="Collector Identifier *" Usage="O" Min="0" Max="*" Datatype="XCN" Length="60" ItemNo="00244">
+            <Reference>7.3.1.10</Reference>
+            <Component Name="ID number (ST)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="family+last name prefix" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="given name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="source table" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="name type code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier check digit" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Specimen Action Code *" Usage="O" Min="0" Max="1" Datatype="ID" Length="1" Table="0065" ItemNo="00245">
+            <Reference>7.3.1.11</Reference>
+          </Field>
+          <Field Name="Danger Code" Usage="RE" Min="0" Max="1" Datatype="CE" Length="60" ItemNo="00246">
+            <Reference>7.3.1.12</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Relevant Clinical Info." Usage="C" Min="0" Max="1" Datatype="ST" Length="300" ItemNo="00247">
+            <Reference>7.3.1.13</Reference>
+          </Field>
+          <Field Name="Specimen Received Date/Time *" Usage="C" Min="0" Max="1" Datatype="TS" Length="26" ItemNo="00248">
+            <Reference>7.3.1.14</Reference>
+            <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+              <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+            </Component>
+            <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+              <ImpNote>Retained for backward compatibility only
+</ImpNote>
+            </Component>
+          </Field>
+          <Field Name="Specimen Source" Usage="C" Min="0" Max="1" Datatype="CM_SPS" Length="300" Table="0070" ItemNo="00249">
+            <Reference>7.3.1.15</Reference>
+            <Component Name="specimen source name or code" Usage="O" Datatype="CE" Length="18">
+              <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+            </Component>
+            <Component Name="additives" Usage="O" Datatype="TX" Length="3">
+						</Component>
+            <Component Name="freetext" Usage="O" Datatype="TX" Length="3">
+						</Component>
+            <Component Name="body site" Usage="O" Datatype="CE" Length="18">
+              <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+            </Component>
+            <Component Name="site modifier" Usage="O" Datatype="CE" Length="18">
+              <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+            </Component>
+            <Component Name="collection modifier method code" Usage="O" Datatype="CE" Length="18">
+              <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+            </Component>
+          </Field>
+          <Field Name="Ordering Provider" Usage="R" Min="1" Max="*" Datatype="XCN" Length="120" ItemNo="00226">
+            <Reference>7.3.1.16</Reference>
+            <Component Name="ID number (ST)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="family+last name prefix" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="given name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="source table" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="name type code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier check digit" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Order Callback Phone Number" Usage="O" Min="0" Max="*" Datatype="XTN" Length="40" ItemNo="00250">
+            <Reference>7.3.1.17</Reference>
+            <Component Name="[(999)] 999-9999 [X99999][C any text]" Usage="O" Datatype="TN" Length="3">
+						</Component>
+            <Component Name="telecommunication use code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="telecommunication equipment type (ID)" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="Email address" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="Country Code" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Area/city code" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Phone number" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="Extension" Usage="O" Datatype="NM" Length="3">
+						</Component>
+            <Component Name="any text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Placer Field 1" Usage="O" Min="0" Max="1" Datatype="ST" Length="60" ItemNo="00251">
+            <Reference>7.3.1.18</Reference>
+          </Field>
+          <Field Name="Placer Field 2" Usage="O" Min="0" Max="1" Datatype="ST" Length="60" ItemNo="00252">
+            <Reference>7.3.1.19</Reference>
+          </Field>
+          <Field Name="Filler Field 1 +" Usage="O" Min="0" Max="1" Datatype="ST" Length="60" ItemNo="00253">
+            <Reference>7.3.1.20</Reference>
+          </Field>
+          <Field Name="Filler Field 2 +" Usage="O" Min="0" Max="1" Datatype="ST" Length="60" ItemNo="00254">
+            <Reference>7.3.1.21</Reference>
+          </Field>
+          <Field Name="Results Rpt/Status Chng - Date/Time +" Usage="C" Min="0" Max="1" Datatype="TS" Length="26" ItemNo="00255">
+            <Reference>7.3.1.22</Reference>
+            <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+              <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+            </Component>
+            <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+              <ImpNote>Retained for backward compatibility only
+</ImpNote>
+            </Component>
+          </Field>
+          <Field Name="Charge to Practice +" Usage="O" Min="0" Max="1" Datatype="CM_MOC" Length="40" ItemNo="00256">
+            <Reference>7.3.1.23</Reference>
+            <Component Name="dollar amount" Usage="O" Datatype="MO" Length="6">
+              <SubComponent Name="quantity" Usage="O" Datatype="NM" Length="3">
+							</SubComponent>
+              <SubComponent Name="denomination" Usage="O" Datatype="ID" Length="3">
+							</SubComponent>
+            </Component>
+            <Component Name="charge code" Usage="O" Datatype="CE" Length="18">
+              <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+            </Component>
+          </Field>
+          <Field Name="Diagnostic Serv Sect ID" Usage="O" Min="0" Max="1" Datatype="ID" Length="10" Table="0074" ItemNo="00257">
+            <Reference>7.3.1.24</Reference>
+          </Field>
+          <Field Name="Result Status +" Usage="C" Min="0" Max="1" Datatype="ID" Length="1" Table="0123" ItemNo="00258">
+            <Reference>7.3.1.25</Reference>
+          </Field>
+          <Field Name="Parent Result +" Usage="O" Min="0" Max="1" Datatype="CM_PRL" Length="200" ItemNo="00259">
+            <Reference>7.3.1.26</Reference>
+            <Component Name="OBX-3 observation identifier of parent result" Usage="O" Datatype="CE" Length="18">
+              <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+            </Component>
+            <Component Name="OBX-4 sub-ID of parent result" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="part of OBX-5 observation result from parent" Usage="O" Datatype="TX" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Quantity/Timing" Usage="R" Min="1" Max="*" Datatype="TQ" Length="200" ItemNo="00221">
+            <Reference>7.3.1.27</Reference>
+            <Component Name="quantity" Usage="O" Datatype="CQ" Length="21">
+              <SubComponent Name="quantity" Usage="O" Datatype="NM" Length="3">
+							</SubComponent>
+              <SubComponent Name="units" Usage="O" Datatype="CE" Length="18">
+							</SubComponent>
+            </Component>
+            <Component Name="interval" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="duration" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="start date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="end date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="priority" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="condition" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="conjunction" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="order sequencing" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="occurrence duration" Usage="O" Datatype="CE" Length="18">
+              <SubComponent Name="identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="alternate text" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+            </Component>
+            <Component Name="total occurences" Usage="O" Datatype="NM" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Result Copies To" Usage="O" Min="0" Max="*" Datatype="XCN" Length="150" ItemNo="00260">
+            <Reference>7.3.1.28</Reference>
+            <Component Name="ID number (ST)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="family+last name prefix" Usage="O" Datatype="CM" Length="3">
+						</Component>
+            <Component Name="given name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="source table" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="name type code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier check digit" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="code identifying the check digit scheme employed" Usage="O" Datatype="ID" Length="3">
+						</Component>
+            <Component Name="identifier type code" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="assigning facility" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="Name Representation code" Usage="O" Datatype="ID" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Parent" Usage="O" Min="0" Max="1" Datatype="CM_EIP" Length="200" ItemNo="00261">
+            <Reference>7.3.1.29</Reference>
+            <Component Name="parent's placer order number" Usage="O" Datatype="EI" Length="12">
+              <SubComponent Name="entity identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="parent's filler order number" Usage="O" Datatype="EI" Length="12">
+              <SubComponent Name="entity identifier" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+          </Field>
+          <Field Name="Transportation Mode" Usage="RE" Min="0" Max="1" Datatype="ID" Length="20" Table="0124" ItemNo="00262">
+            <Reference>7.3.1.30</Reference>
+          </Field>
+          <Field Name="Reason for Study" Usage="RE" Min="0" Max="*" Datatype="CE" Length="300" ItemNo="00263">
+            <Reference>7.3.1.31</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Principal Result Interpreter +" Usage="O" Min="0" Max="1" Datatype="CM_NDL" Length="200" ItemNo="00264">
+            <Reference>7.3.1.32</Reference>
+            <Component Name="name" Usage="O" Datatype="CN" Length="33">
+              <SubComponent Name="ID number (ST)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="family name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="given name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+							</SubComponent>
+              <SubComponent Name="source table" Usage="O" Datatype="IS" Length="3">
+							</SubComponent>
+              <SubComponent Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+							</SubComponent>
+            </Component>
+            <Component Name="start date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="end date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="point of care (IS)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="room" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="bed" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="facility (HD)" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="location status" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="person location type" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="building" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="floor" Usage="O" Datatype="IS" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Assistant Result Interpreter +" Usage="O" Min="0" Max="*" Datatype="CM_NDL" Length="200" ItemNo="00265">
+            <Reference>7.3.1.33</Reference>
+            <Component Name="name" Usage="O" Datatype="CN" Length="33">
+              <SubComponent Name="ID number (ST)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="family name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="given name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+							</SubComponent>
+              <SubComponent Name="source table" Usage="O" Datatype="IS" Length="3">
+							</SubComponent>
+              <SubComponent Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+							</SubComponent>
+            </Component>
+            <Component Name="start date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="end date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="point of care (IS)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="room" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="bed" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="facility (HD)" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="location status" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="person location type" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="building" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="floor" Usage="O" Datatype="IS" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Technician +" Usage="O" Min="0" Max="*" Datatype="CM_NDL" Length="200" ItemNo="00266">
+            <Reference>7.3.1.34</Reference>
+            <Component Name="name" Usage="O" Datatype="CN" Length="33">
+              <SubComponent Name="ID number (ST)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="family name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="given name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+							</SubComponent>
+              <SubComponent Name="source table" Usage="O" Datatype="IS" Length="3">
+							</SubComponent>
+              <SubComponent Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+							</SubComponent>
+            </Component>
+            <Component Name="start date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="end date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="point of care (IS)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="room" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="bed" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="facility (HD)" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="location status" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="person location type" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="building" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="floor" Usage="O" Datatype="IS" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Transcriptionist +" Usage="O" Min="0" Max="*" Datatype="CM_NDL" Length="200" ItemNo="00267">
+            <Reference>7.3.1.35</Reference>
+            <Component Name="name" Usage="O" Datatype="CN" Length="33">
+              <SubComponent Name="ID number (ST)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="family name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="given name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="middle initial or name" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="suffix (e.g., JR or III)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="prefix (e.g., DR)" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="degree (e.g., MD)" Usage="O" Datatype="IS" Length="3">
+							</SubComponent>
+              <SubComponent Name="source table" Usage="O" Datatype="IS" Length="3">
+							</SubComponent>
+              <SubComponent Name="assigning authority" Usage="O" Datatype="HD" Length="9">
+							</SubComponent>
+            </Component>
+            <Component Name="start date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="end date/time" Usage="O" Datatype="TS" Length="26">
+              <SubComponent Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+                <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+              </SubComponent>
+              <SubComponent Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+                <ImpNote>Retained for backward compatibility only
+</ImpNote>
+              </SubComponent>
+            </Component>
+            <Component Name="point of care (IS)" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="room" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="bed" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="facility (HD)" Usage="O" Datatype="HD" Length="9">
+              <SubComponent Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+							</SubComponent>
+              <SubComponent Name="universal ID" Usage="O" Datatype="ST" Length="3">
+							</SubComponent>
+              <SubComponent Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+							</SubComponent>
+            </Component>
+            <Component Name="location status" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="person location type" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="building" Usage="O" Datatype="IS" Length="3">
+						</Component>
+            <Component Name="floor" Usage="O" Datatype="IS" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Scheduled Date/Time +" Usage="O" Min="0" Max="1" Datatype="TS" Length="26" ItemNo="00268">
+            <Reference>7.3.1.36</Reference>
+            <Component Name="Date/Time" Usage="R" Datatype="NM" Length="26">
+              <ImpNote>YYYYMMDD[HHHMM[SS[.SSSS]]][+-ZZZZ]
+</ImpNote>
+            </Component>
+            <Component Name="degree of precision" Usage="X" Datatype="ST" Length="1">
+              <ImpNote>Retained for backward compatibility only
+</ImpNote>
+            </Component>
+          </Field>
+          <Field Name="Number of Sample Containers *" Usage="O" Min="0" Max="1" Datatype="NM" Length="4" ItemNo="01028">
+            <Reference>7.3.1.37</Reference>
+          </Field>
+          <Field Name="Transport Logistics of Collected Sample *" Usage="O" Min="0" Max="*" Datatype="CE" Length="60" ItemNo="01029">
+            <Reference>7.3.1.38</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Collector's Comment *" Usage="O" Min="0" Max="*" Datatype="CE" Length="200" ItemNo="01030">
+            <Reference>7.3.1.39</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Transport Arrangement Responsibility" Usage="O" Min="0" Max="1" Datatype="CE" Length="60" ItemNo="01031">
+            <Reference>7.3.1.40</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Transport Arranged" Usage="RE" Min="0" Max="1" Datatype="ID" Length="30" Table="0224" ItemNo="01032">
+            <Reference>7.3.1.41</Reference>
+          </Field>
+          <Field Name="Escort Required" Usage="O" Min="0" Max="1" Datatype="ID" Length="1" Table="0225" ItemNo="01033">
+            <Reference>7.3.1.42</Reference>
+          </Field>
+          <Field Name="Planned Patient Transport Comment" Usage="O" Min="0" Max="*" Datatype="CE" Length="200" ItemNo="01034">
+            <Reference>7.3.1.43</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Procedure Code" Usage="O" Min="0" Max="1" Datatype="CE" Length="80" Table="0088" ItemNo="00393">
+            <Reference>8.9.2.7</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Procedure Code Modifier" Usage="O" Min="0" Max="*" Datatype="CE" Length="80" Table="0340" ItemNo="01316">
+            <Reference>7.3.1.45</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+        </Segment>
+        <Segment Name="NTE" LongName="notes and comments segment" Usage="RE" Min="0" Max="*">
+          <Field Name="Set ID - NTE" Usage="O" Min="0" Max="1" Datatype="SI" Length="4" ItemNo="00096">
+            <Reference>2.24.15.1</Reference>
+          </Field>
+          <Field Name="Source of Comment" Usage="O" Min="0" Max="1" Datatype="ID" Length="8" Table="0105" ItemNo="00097">
+            <Reference>2.24.15.2</Reference>
+          </Field>
+          <Field Name="Comment" Usage="O" Min="0" Max="*" Datatype="FT" Length="65536" ItemNo="00098">
+            <Reference>2.24.15.3</Reference>
+          </Field>
+          <Field Name="Comment Type" Usage="O" Min="0" Max="1" Datatype="CE" Length="60" Table="0364" ItemNo="01318">
+            <Reference>2.24.15.4</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+        </Segment>
+        <Segment Name="CTI" LongName="clinical trial identification segment" Usage="RE" Min="0" Max="*">
+          <Field Name="Sponsor Study ID" Usage="R" Min="1" Max="1" Datatype="EI" Length="60" ItemNo="01011">
+            <Reference>8.10.2.2</Reference>
+            <Component Name="entity identifier" Usage="R" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="namespace ID" Usage="O" Datatype="IS" Length="3" Table="0300">
+						</Component>
+            <Component Name="universal ID" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="universal ID type" Usage="O" Datatype="ID" Length="3" Table="0301">
+						</Component>
+          </Field>
+          <Field Name="Study Phase Identifier" Usage="C" Min="0" Max="1" Datatype="CE" Length="60" ItemNo="01022">
+            <Reference>8.10.3.2</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+          <Field Name="Study Scheduled Time Point" Usage="O" Min="0" Max="1" Datatype="CE" Length="60" ItemNo="01055">
+            <Reference>7.7.4.3</Reference>
+            <Component Name="identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate identifier" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="alternate text" Usage="O" Datatype="ST" Length="3">
+						</Component>
+            <Component Name="name of alternate coding system" Usage="O" Datatype="ST" Length="3">
+						</Component>
+          </Field>
+        </Segment>
+      </SegGroup>
+    </SegGroup>
+  </HL7v2xStaticDef>
+</HL7v2xConformanceProfile>
